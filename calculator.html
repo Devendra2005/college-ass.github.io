@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+<title>Simple Calculator - Devendra Chavan</title>
+</head>
+<body>
+<h2>Simple Calculator</h2>
+<p>Devendra Chavan</p>
+<label for="num1">Enter first number:</label>
+<input type="number" id="num1">
+<label for="operator">Choose an operator:</label>
+
+<select id="operator">
+<option value="+">+</option>
+<option value="+">-</option>
+<option value="+">*</option>
+<option value="+">/</option>
+</select>
+
+<select id="operator">
+<option value="+">+</option>
+<option value="-">-</option>
+<option value="*">*</option>
+<option value="/">/</option>
+</select>
+<label for="num2">Enter second number:</label>
+<input type="number" id="num2">
+<button onclick="calculate()">Calculate</button>
+<div id="result"></div>
+<script>
+function calculate() {
+const num1 = parseFloat(document.getElementById("num1").value);
+const num2 = parseFloat(document.getElementById("num2").value);
+const operator = document.getElementById("operator").value;
+let result;
+switch (operator) {
+case '+':
+result = num1 + num2;
+break;
+case '-':
+result = num1 - num2;
+break;
+case '*':
+result = num1 * num2;
+break;
+case '/':
+if (num2 !== 0) {
+result = num1 / num2;
+} else {
+result = "Division by zero error!";
+}
+break;
+default:
+result = "Invalid operator";
+}
+document.getElementById("result").textContent = `Result: ${result}`;
+}
+</script>
+</body>
+</html>

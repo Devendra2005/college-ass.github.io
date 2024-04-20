@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.inner-box {
+    margin: auto;
+    width: 50%;
+    border: 3px solid black;
+    padding: 10px;
+    padding-bottom: 200px;
+}
+
+.item-align{
+    display: flexbox;
+    justify-content:center;
+    align-items: center;
+}
+
+#inputLabel{
+    position: absolute;
+    left: 500px;
+}
+
+#numberInput{
+    position: absolute;
+    left: 500px;
+    border-radius: 5%;
+    width:250px;
+    padding: 4px;
+
+}
+
+#submit{
+    position: absolute;
+    left: 560px;
+    top:150px;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+
+}
+
+#result{
+    position: absolute;
+    top: 200px;
+    left: 525px;
+    font-size: x-large;
+    font-weight: 600;
+    color:aquamarine;
+
+
+}
+</style>
+<body>
+    <div class="inner-box">
+        <h2><center>Fibo Calculator</center></h2>
+        <form>
+            <div class="item-align">
+            <label id="inputLabel" for="numberInput">Enter a number: </label><br>
+            <input type="number" id="numberInput" min="0">
+            <br/>
+            </form>
+            <button onclick="calculateFactorial()" id="submit">Calculate Factorial</button>  
+            </div>
+        <p id="result"></p>        
+    </div>
+        
+    
+
+</body>
+<script>
+    function calculateFactorial(){
+        event.preventDefault();
+        const numberInput = document.getElementById("numberInput").value;
+        const resultDisplay = document.getElementById("result");
+
+        if(numberInput >= 0){
+            let Fibo = [0,1];
+            for(let i = 2;i<=numberInput - 1;i++){
+                Fibo.push(Fibo[i - 1] + Fibo[i - 2]);
+            }
+            resultDisplay.textContent = `Fibo of ${numberInput} is ${Fibo}`
+        }
+        else
+        {
+            resultDisplay.textContent = "Please enter a non-negative intergers";
+        }
+    }
+</script>
+</html>
